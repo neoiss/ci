@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-go@v3.0.0
 
       - name: Go Version
-        run: cd ../.. && go version
+        run: cd ../.. && pwd && go version
 
       - name: Install dependencies
         run: go mod tidy
