@@ -23,7 +23,7 @@ jobs:
         run:  go version
 
       - name: Install dependencies
-        run: pwd && cd ../.. && pwd && go mod tidy
+        run: pwd && ls && cd ../.. && pwd && go mod tidy
 
       - name: Go Build
         run: GOOS=linux GOARCH=arm64 go build=linux GOARCH=arm64 go build -o ci.bin main.go
