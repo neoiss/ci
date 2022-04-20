@@ -20,15 +20,15 @@ jobs:
         uses: actions/setup-go@v3.0.0
 
       - name: Go Version
-        run:  go version
+        run: go version
 
       - name: Install dependencies
-        run: pwd && ls && cd ../.. && pwd && go mod tidy
+        run: go mod tidy
 
       - name: Go Build
         run: GOOS=linux GOARCH=arm64 go build=linux GOARCH=arm64 go build -o ci.bin main.go
 
       - name: Run
-        run: ../../ci.bin
+        run: ./ci.bin
 
 
