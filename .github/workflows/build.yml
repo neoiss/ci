@@ -1,0 +1,31 @@
+name: build
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.1
+
+      - name: Setup Go environment
+        uses: actions/setup-go@v3.0.0
+
+      - name: Go Version
+        run: go version
+
+      - name: Install dependencies
+        run: go mod tidy
+
+      - name: Go Build
+        run: GOOS=linux GOARCH=arm64 go build=linux GOARCH=arm64 go build -o ci.bin main.go
+
+      - name: Run
+        run: ../../ci.bin
+
+
